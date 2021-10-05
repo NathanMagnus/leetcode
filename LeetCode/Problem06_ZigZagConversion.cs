@@ -6,14 +6,14 @@ using System.Linq;
 namespace LeetCode
 {
     // 2 tries
-    public class Problem6_ZigZagConversion
+    public class Problem06_ZigZagConversion
     {
         [Test]
         [TestCase("PAYPALISHIRING", 3, "PAHNAPLSIIGYIR")]
         [TestCase("AB", 1, "AB")]
         public void Test(string s, int rows, string expected)
         {
-            var sut = new Problem6_ZigZagConversion();
+            var sut = new Problem06_ZigZagConversion();
             var result = sut.Convert(s, rows);
             Assert.AreEqual(expected, result);
         }
