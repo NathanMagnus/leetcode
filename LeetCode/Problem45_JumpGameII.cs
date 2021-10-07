@@ -2,7 +2,7 @@ using NUnit.Framework;
 using System;
 using System.Linq;
 
-namespace LeetCodes
+namespace LeetCode
 {
     public class Problem45_JumpGameII
     {

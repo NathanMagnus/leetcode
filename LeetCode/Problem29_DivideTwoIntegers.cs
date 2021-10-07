@@ -2,7 +2,7 @@ using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 
-namespace LeetCodes
+namespace LeetCode
 {
     public class Problem29_DivideTwoIntegers
     {

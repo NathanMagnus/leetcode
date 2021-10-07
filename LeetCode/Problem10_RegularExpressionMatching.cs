@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace LeetCodes
+namespace LeetCode
 {
     public class Problem10_RegularExpressionMatching
     {
