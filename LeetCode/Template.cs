@@ -9,7 +9,7 @@ namespace LeetCode
     public class Template
     {
         [Test]
-        [TestCase("bb", "bb")]
+        [TestCase("bb", "")]
         public void Test(string s, string expected)
         {
             var sut = new Template();

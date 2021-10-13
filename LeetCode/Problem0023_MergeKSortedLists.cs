@@ -18,15 +18,7 @@ namespace LeetCode
             var sut = new Problem0023_MergeKSortedLists();
             var result = sut.MergeKLists(lists);
 
-            var currentExpected = expectedList;
-            var currentResult = result;
-            while (currentExpected != null)
-            {
-                Assert.AreEqual(currentExpected.val, currentResult.val);
-                currentExpected = currentExpected.next;
-                currentResult = currentResult.next;
-            }
-            Assert.AreEqual(currentExpected, currentResult);
+            Helpers.AssertLinkedListsAreEqual(expected.ToListNodeLinkedList(), result);
         }
 
         private ListNode CreateList(string listItems)

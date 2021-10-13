@@ -16,10 +16,9 @@ namespace LeetCode
 
             var sut = new Problem0002_AddTwoNumbers();
             var result = sut.AddTwoNumbers(l1, l2);
-            Assert.AreEqual(expected, result);
+            Helpers.AssertLinkedListsAreEqual(expected.ToListNodeLinkedList(), result);
         }
 
-        private static ListNode _zero = new ListNode();
         public ListNode AddTwoNumbers(ListNode l1, ListNode l2)
         {
             return AddTwoNumbersInternal(l1, l2, 0);
