@@ -4,7 +4,8 @@ using System.Linq;
 
 namespace LeetCode
 {
-    public class Problem07_ReverseInteger
+    // Difficulty: Medium
+    public class Problem0007_ReverseInteger
     {
         [Test]
         [TestCase(123, 321)]
@@ -13,7 +14,7 @@ namespace LeetCode
         [TestCase(0, 0)]
         public void Test(int s, int expected)
         {
-            var sut = new Problem07_ReverseInteger();
+            var sut = new Problem0007_ReverseInteger();
             var result = sut.Reverse(s);
             Assert.AreEqual(expected, result);
         }

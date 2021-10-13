@@ -5,15 +5,15 @@ using System.Linq;
 
 namespace LeetCode
 {
-    // 2 tries
-    public class Problem06_ZigZagConversion
+    // Difficulty: Medium
+    public class Problem0006_ZigZagConversion
     {
         [Test]
         [TestCase("PAYPALISHIRING", 3, "PAHNAPLSIIGYIR")]
         [TestCase("AB", 1, "AB")]
         public void Test(string s, int rows, string expected)
         {
-            var sut = new Problem06_ZigZagConversion();
+            var sut = new Problem0006_ZigZagConversion();
             var result = sut.Convert(s, rows);
             Assert.AreEqual(expected, result);
         }

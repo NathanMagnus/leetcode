@@ -4,7 +4,8 @@ using System.Collections.Generic;
 
 namespace LeetCode
 {
-    public class Problem29_DivideTwoIntegers
+    // Difficulty: Medium
+    public class Problem0029_DivideTwoIntegers
     {
         [Test]
         [TestCase(7, -3, -2)]
@@ -15,7 +16,7 @@ namespace LeetCode
         [TestCase(int.MinValue, -1, int.MaxValue)]
         public void Test(int i1, int i2, int expected)
         {
-            var sut = new Problem29_DivideTwoIntegers();
+            var sut = new Problem0029_DivideTwoIntegers();
             var result = sut.Divide(i1, i2);
             Assert.AreEqual(expected, result);
         }

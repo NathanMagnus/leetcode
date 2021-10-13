@@ -4,7 +4,8 @@ using System.Linq;
 
 namespace LeetCode
 {
-    public class Problem292_NimGame
+    // Difficulty: Easy
+    public class Problem0292_NimGame
     {
         [Test]
         [TestCase(1, true)]
@@ -18,7 +19,7 @@ namespace LeetCode
         [TestCase(1348820612, false)]
         public void Test(int n, bool expected)
         {
-            var sut = new Problem292_NimGame();
+            var sut = new Problem0292_NimGame();
             var result = sut.CanWinNim(n);
             Assert.AreEqual(expected, result);
         }

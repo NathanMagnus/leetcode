@@ -6,7 +6,7 @@ using System.Text;
 
 namespace LeetCode
 {
-    public class Problem37_SudokuSolver
+    public class Problem0037_SudokuSolver
     {
         [Test]
         [TestCase(
@@ -14,7 +14,7 @@ namespace LeetCode
             "5,3,4,6,7,8,9,1,2-6,7,2,1,9,5,3,4,8-1,9,8,3,4,2,5,6,7-8,5,9,7,6,1,4,2,3-4,2,6,8,5,3,7,9,1-7,1,3,9,2,4,8,5,6-9,6,1,5,3,7,2,8,4-2,8,7,4,1,9,6,3,5-3,4,5,2,8,6,1,7,9")]
         public void Test(string s, string expected)
         {
-            var sut = new Problem37_SudokuSolver();
+            var sut = new Problem0037_SudokuSolver();
 
             var board = SplitString(s).ToArray();
             var expectedBoard = SplitString(expected).ToArray();
@@ -44,9 +44,9 @@ namespace LeetCode
 
         private static IEnumerable<char[]> SplitString(string s)
         {
-            var rows = s.Split("-");
+            var rows = s.ToStringArray('-');
             foreach (var row in rows)
-                yield return row.Split(",").Select(x => String.IsNullOrEmpty(x) || x == "." ? ' ' : x[0]).ToArray();
+                yield return row.ToStringArray().Select(x => String.IsNullOrEmpty(x) || x == "." ? ' ' : x[0]).ToArray();
         }
 
         private static bool CharInRow(char c, char[][] board, int row)

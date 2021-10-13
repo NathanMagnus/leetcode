@@ -5,7 +5,8 @@ using System.Linq;
 
 namespace LeetCode
 {
-    public class Problem10_RegularExpressionMatching
+    // Difficulty: Hard
+    public class Problem0010_RegularExpressionMatching
     {
         [Test]
         [TestCase("bbbba", ".*a*a", true)]
@@ -21,7 +22,7 @@ namespace LeetCode
         [TestCase("mississippi", "mis*is*ip*.", true)]
         public void Test(string s, string p, bool expected)
         {
-            var sut = new Problem10_RegularExpressionMatching();
+            var sut = new Problem0010_RegularExpressionMatching();
 
             var result = sut.IsMatch(s, p);
 

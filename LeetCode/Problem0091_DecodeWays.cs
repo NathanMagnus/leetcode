@@ -4,7 +4,8 @@ using System.Collections.Generic;
 
 namespace LeetCode
 {
-    public class Problem91_DecodeWays
+    // Difficulty: Medium
+    public class Problem0091_DecodeWays
     {
         [Test]
         [TestCase("12", 2)]
@@ -15,7 +16,7 @@ namespace LeetCode
 //        [TestCase("111111111111111111111111111111111111111111111", 0)]
         public void Test(string s, int expected)
         {
-            var sut = new Problem91_DecodeWays();
+            var sut = new Problem0091_DecodeWays();
             var result = sut.NumDecodings(s);
             Assert.AreEqual(expected, result);
         }

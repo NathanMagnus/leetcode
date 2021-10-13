@@ -4,16 +4,17 @@ using System.Linq;
 
 namespace LeetCode
 {
-    public class Problem21_MergeTwoSortedLists
+    // Difficulty: Easy
+    public class Problem0021_MergeTwoSortedLists
     {
         [Test]
         [TestCase("1,2,4", "1,3,4", "1,1,2,3,4,4")]
         public void Test(string l1, string l2, string expected)
         {
-            var sut = new Problem21_MergeTwoSortedLists();
+            var sut = new Problem0021_MergeTwoSortedLists();
 
-            var l1Nodes = l1.Split(",").Select(x => new ListNode(int.Parse(x))).ToArray();
-            var l2Nodes = l2.Split(",").Select(x => new ListNode(int.Parse(x))).ToArray();
+            var l1Nodes = l1.ToIntArray().Select(i => new ListNode(i)).ToArray();
+            var l2Nodes = l2.ToIntArray().Select(i => new ListNode(i)).ToArray();
 
             for (var i = 0; i < l1Nodes.Length - 1; i++)
                 l1Nodes[i].next = l1Nodes[i + 1];
@@ -50,17 +51,6 @@ namespace LeetCode
             }
 
             return firstNode.next;
-        }
-
-        public class ListNode
-        {
-            public int val;
-            public ListNode next;
-            public ListNode(int val = 0, ListNode next = null)
-            {
-                this.val = val;
-                this.next = next;
-            }
         }
     }
 }

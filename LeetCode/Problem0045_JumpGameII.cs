@@ -4,19 +4,17 @@ using System.Linq;
 
 namespace LeetCode
 {
-    public class Problem45_JumpGameII
+    // Difficulty: Medium
+    public class Problem0045_JumpGameII
     {
         [Test]
         [TestCase("2,3,1,1,4", 2)]
         [TestCase("2,3,0,1,4", 2)]
         public void Test(string s, int expected)
         {
-            var inputArray = s
-                .Split(",")
-                .Select(x => int.Parse(x))
-                .ToArray();
+            var inputArray = s.ToIntArray();
 
-            var sut = new Problem45_JumpGameII();
+            var sut = new Problem0045_JumpGameII();
             var result = sut.Jump(inputArray);
             Assert.AreEqual(expected, result);
         }

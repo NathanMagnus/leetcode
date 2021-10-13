@@ -5,14 +5,15 @@ using System.Linq;
 
 namespace LeetCode
 {
-    public class Problem22_GenerateParentheses
+    // Difficulty: Medium
+    public class Problem0022_GenerateParentheses
     {
         [Test]
         [TestCase(1, "()")]
         [TestCase(3, "((()))", "(()())", "(())()", "()(())", "()()()")]
         public void Test(int n, params string[] expected)
         {
-            var sut = new Problem22_GenerateParentheses();
+            var sut = new Problem0022_GenerateParentheses();
             var result = sut.GenerateParenthesis(n).ToList();
 
             foreach(var e in expected)

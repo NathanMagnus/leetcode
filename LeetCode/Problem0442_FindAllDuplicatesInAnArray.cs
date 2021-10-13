@@ -5,23 +5,19 @@ using System.Linq;
 
 namespace LeetCode
 {
-    public class Problem442_FindAllDuplicatesInAnArray
+    // Difficulty: Medium
+    public class Problem0442_FindAllDuplicatesInAnArray
     {
         [Test]
         [TestCase("4,3,2,7,8,2,3,1", "2,3")]
         public void Test(string s, string expected)
         {
-            var inputArray = s
-                .Split(",")
-                .Select(x => int.Parse(x))
-                .ToArray();
+            var inputArray = s.ToIntArray();
             
-            var sut = new Problem442_FindAllDuplicatesInAnArray();
+            var sut = new Problem0442_FindAllDuplicatesInAnArray();
             var result = sut.FindDuplicates(inputArray).ToArray();
 
-            var expectedArray = expected
-                .Split(",")
-                .Select(x => int.Parse(x));
+            var expectedArray = expected.ToIntArray();
 
             Assert.AreEqual(expectedArray, result);
         }

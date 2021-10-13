@@ -5,7 +5,8 @@ using System.Linq;
 
 namespace LeetCode
 {
-    public class Problem03_LongestSubstringWithoutRepeatingCharacters
+    // Difficulty: Medium
+    public class Problem0003_LongestSubstringWithoutRepeatingCharacters
     {
         [Test]
         [TestCase("abba", 2)]
@@ -21,7 +22,7 @@ namespace LeetCode
             0)]
         public void Test(string s, int expected)
         {
-            var sut = new Problem03_LongestSubstringWithoutRepeatingCharacters();
+            var sut = new Problem0003_LongestSubstringWithoutRepeatingCharacters();
             var result = sut.LengthOfLongestSubstring(s);
             Assert.AreEqual(expected, result);
         }

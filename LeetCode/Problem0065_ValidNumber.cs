@@ -4,7 +4,8 @@ using System.Text.RegularExpressions;
 
 namespace LeetCode
 {
-    public class Problem65_ValidNumber
+    // Difficulty: Hard
+    public class Problem0065_ValidNumber
     {
         [Test]
         [TestCase("0", true)]
@@ -17,7 +18,7 @@ namespace LeetCode
         [TestCase("1E9", true)]
         public void Test(string s, bool expected)
         {
-            var sut = new Problem65_ValidNumber();
+            var sut = new Problem0065_ValidNumber();
             var result = sut.IsNumber(s);
             Assert.AreEqual(expected, result);
         }

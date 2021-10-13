@@ -5,16 +5,17 @@ using System.Text;
 
 namespace LeetCode
 {
-    public class Problem14_LongestCommonPrefix
+    // Difficulty: Easy
+    public class Problem0014_LongestCommonPrefix
     {
         [Test]
         [TestCase("flower,flow,flight", "fl")]
         [TestCase("dog,racecar,car", "")]
         public void Test(string s, string expected)
         {
-            var sut = new Problem14_LongestCommonPrefix();
+            var sut = new Problem0014_LongestCommonPrefix();
 
-            var strings = s.Split(",").Select(x => x.Trim()).ToArray();
+            var strings = s.ToStringArray();
 
             var result = sut.LongestCommonPrefix(strings);
             Assert.AreEqual(expected, result);

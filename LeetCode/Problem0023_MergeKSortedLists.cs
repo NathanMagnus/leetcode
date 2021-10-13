@@ -4,17 +4,18 @@ using System.Linq;
 
 namespace LeetCode
 {
+    //Difficulty: Hard
     //Time: 20 min
-    public class Problem23_MergeKSortedLists
+    public class Problem0023_MergeKSortedLists
     {
         [Test]
         [TestCase("1,4,5-1,3,4-2,6", "1,1,2,3,4,4,5,6")]
         public void Test(string input, string expected)
         {
-            var lists = input.Split('-').Select(x => CreateList(x)).ToArray();
+            var lists = input.ToStringArray('-').Select(str => str.ToListNodeLinkedList()).ToArray();
             var expectedList = CreateList(expected);
 
-            var sut = new Problem23_MergeKSortedLists();
+            var sut = new Problem0023_MergeKSortedLists();
             var result = sut.MergeKLists(lists);
 
             var currentExpected = expectedList;
@@ -30,10 +31,7 @@ namespace LeetCode
 
         private ListNode CreateList(string listItems)
         {
-            var items = listItems
-                .Split(',')
-                .Select(item => new ListNode(int.Parse(item)))
-                .ToArray();
+            var items = listItems.ToIntArray().Select(item => new ListNode(item)).ToArray();
             for (var i = 0; i < items.Length - 1; i++)
                 items[i].next = items[i + 1];
             return items.Length == 0 ? null : items[0];
@@ -69,7 +67,7 @@ namespace LeetCode
                 }
                 currentNodes[currentI] = currentNodes[currentI].next;
 
-                if(firstNode == null)
+                if (firstNode == null)
                     firstNode = min;
                 if (newList == null)
                     newList = min;
@@ -86,18 +84,4 @@ namespace LeetCode
         private bool HaveValues(ListNode[] lists)
             => lists.Any(list => list != null);
     }
-
-
-
-    public class ListNode
-    {
-        public int val;
-        public ListNode next;
-        public ListNode(int val = 0, ListNode next = null)
-        {
-            this.val = val;
-            this.next = next;
-        }
-    }
-
 }

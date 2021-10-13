@@ -5,7 +5,8 @@ using System.Linq;
 
 namespace LeetCode
 {
-    public class Problem70_ClimbingStairs
+    // Difficulty: Easy
+    public class Problem0070_ClimbingStairs
     {
         [Test]
         [TestCase(1, 1)]
@@ -15,7 +16,7 @@ namespace LeetCode
         [TestCase(5, 8)]
         public void Test(int steps, int expected)
         {
-            var sut = new Problem70_ClimbingStairs();
+            var sut = new Problem0070_ClimbingStairs();
             var result = sut.ClimbStairs(steps);
             Assert.AreEqual(expected, result);
         }
