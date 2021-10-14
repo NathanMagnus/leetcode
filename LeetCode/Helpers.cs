@@ -1,4 +1,6 @@
 ﻿using NUnit.Framework;
+using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace LeetCode
@@ -24,6 +26,20 @@ namespace LeetCode
 
         public static ListNode ToListNodeLinkedList(this string str, char delimiter = ',')
             => str.ToIntArray(delimiter).ToListNodeLinkedList();
+
+        public static void AssertAreEquivalent<T>(IEnumerable<T> e1, IEnumerable<T> e2)
+        {
+            Assert.AreEqual(e1.Count(), e2.Count());
+            if (typeof(T).GetInterfaces().Contains(typeof(IEnumerable)) && typeof(T) != typeof(string))
+            {
+                for (var i = 0; i < e1.Count(); i++)
+                {
+                    AssertAreEquivalent((dynamic)e1.ElementAt(i), (dynamic)e2.ElementAt(i));
+                }
+            }
+            else
+                Assert.True(e1.SequenceEqual(e2));
+        }
 
         public static void AssertLinkedListsAreEqual(params ListNode[] lists)
         {
