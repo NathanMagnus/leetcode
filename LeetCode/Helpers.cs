@@ -27,18 +27,23 @@ namespace LeetCode
         public static ListNode ToListNodeLinkedList(this string str, char delimiter = ',')
             => str.ToIntArray(delimiter).ToListNodeLinkedList();
 
-        public static void AssertAreEquivalent<T>(IEnumerable<T> e1, IEnumerable<T> e2)
+        public static bool AreEquivalent<T>(IEnumerable<T> e1, IEnumerable<T> e2)
         {
             Assert.AreEqual(e1.Count(), e2.Count());
             if (typeof(T).GetInterfaces().Contains(typeof(IEnumerable)) && typeof(T) != typeof(string))
             {
                 for (var i = 0; i < e1.Count(); i++)
                 {
-                    AssertAreEquivalent((dynamic)e1.ElementAt(i), (dynamic)e2.ElementAt(i));
+                    var success = false;
+                    foreach(var e2Element in e2)
+                        success |= AreEquivalent((dynamic)e1.ElementAt(i), (dynamic)e2Element);
+                    if(!success)
+                        return false;
                 }
+                return true;
             }
             else
-                Assert.True(e1.SequenceEqual(e2));
+                return e1.SequenceEqual(e2);
         }
 
         public static void AssertLinkedListsAreEqual(params ListNode[] lists)
