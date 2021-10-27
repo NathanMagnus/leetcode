@@ -6,7 +6,7 @@ using System.Linq;
 namespace LeetCode
 {
     // Difficulty: Hard
-    // Time: Started 7:55
+    // Time: First draft - 25 min, second draft 10 min
     public class Problem149_MaxPointsOnALine
     {
         [Test]
@@ -40,17 +40,17 @@ namespace LeetCode
             var max = 1;
             for (var i = 0; i < pointsArray.Length; i++)
             {
-                var slopes = new List<decimal>();
+                var slopes = new List<decimal?>();
                 var point1 = pointsArray[i];
                 for (var j = i + 1; j < pointsArray.Length; j++)
                 {
                     var point2 = pointsArray[j];
                     var run = (decimal)point2.X - point1.X;
                     var rise = (decimal)point2.Y - point1.Y;
-                    //slopes.Add(new Slope(rise, run));
-                    slopes.Add(run == 0 ? 0 : rise/run);
+                    var slope = run == 0 ? (decimal?)null : rise / run;
+                    slopes.Add(slope);
                 }
-                
+
                 var slopeMax = slopes.Any()
                     ? slopes
                         .GroupBy(slope => slope)
@@ -62,49 +62,7 @@ namespace LeetCode
             }
 
             return max;
-
-            //var counts = new List<int>();
-            //foreach (var slope in slopes)
-            //{
-            //    for (var i = 0; i < pointsArray.Length; i++)
-            //    {
-            //        var count = 1;
-            //        var point1 = pointsArray[i];
-            //        for (var j = i + 1; j < pointsArray.Length; j++)
-            //        {
-            //            var point2 = pointsArray[j];
-            //            if (IsOnSameLine(point1, point2, slope))
-            //                count++;
-            //        }
-            //        counts.Add(count);
-            //    }
-            //}
-
-            //return counts.Any()
-            //    ? counts.Max()
-            //    : 1;
         }
-
-        //private static bool IsOnSameLine(Point point1, Point point2, Slope slope)
-        //{
-        //    var x = point1.X;
-        //    var y = point1.Y;
-
-        //    if (slope.Rise == 0 && slope.Run == 0)
-        //        return x == point2.X && y == point2.Y;
-
-        //    while (
-        //        ((x > point2.X && slope.Run < 0) || (x < point2.X && slope.Run > 0) || (x == point2.X && slope.Run == 0))
-        //        && ((y > point2.Y && slope.Rise < 0) || (y < point2.Y && slope.Rise > 0) || (y == point2.Y && slope.Rise == 0))
-        //    )
-        //    {
-        //        x += slope.Run;
-        //        y += slope.Rise;
-        //    }
-
-        //    var result = x == point2.X && y == point2.Y;
-        //    return result;
-        //}
 
         private class Point
         {
@@ -117,44 +75,5 @@ namespace LeetCode
                 Y = y;
             }
         }
-
-        //private class Slope
-        //{
-        //    public int Rise { get; set; }
-        //    public int Run { get; set; }
-        //    public decimal SlopeDecimal { get; }
-
-        //    public Slope(int rise, int run)
-        //    {
-        //        var lcd = GetGCD(rise, run);
-
-        //        Rise = rise / lcd;
-        //        Run = run / lcd;
-
-        //        SlopeDecimal = Rise / Run;
-        //    }
-
-        //    private int GetGCD(int num1, int num2)
-        //    {
-        //        num1 = Math.Abs(num1);
-        //        num2 = Math.Abs(num2);
-        //        while (num1 != num2)
-        //        {
-        //            if (num1 > num2)
-        //                num1 = num1 - num2;
-
-        //            if (num2 > num1)
-        //                num2 = num2 - num1;
-        //        }
-
-        //        return num1;
-        //    }
-
-        //    public override int GetHashCode()
-        //        => HashCode.Combine(Rise, Run);
-
-        //    public override bool Equals(object obj)
-        //        => obj is Slope slope && slope.Rise == Rise && slope.Run == Run;
-        //}
     }
 }
