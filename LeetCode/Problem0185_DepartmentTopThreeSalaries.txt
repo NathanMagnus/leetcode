@@ -1,0 +1,24 @@
+﻿# Difficulty: Hard
+# Time: 10 min
+
+# Write your MySQL query statement below
+SELECT
+T.Department as Department,
+E2.Name as Employee,
+T.Salary as Salary
+FROM 
+(
+    SELECT
+    D.Id AS DepartmentId,
+    D.Name as Department,
+    E.Salary AS Salary,
+    row_number() over (PARTITION BY D.ID ORDER BY E.Salary DESC) AS Position
+    FROM Employee AS E
+    INNER JOIN Department AS D ON
+        D.Id = E.DepartmentId
+    GROUP BY E.Salary, D.Id
+) AS T
+INNER JOIN Employee AS E2 ON
+    E2.DepartmentID = T.DepartmentId
+    AND E2.Salary = T.Salary
+WHERE T.Position <= 3
